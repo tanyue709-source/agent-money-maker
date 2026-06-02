@@ -6,6 +6,10 @@ on:
   schedule:
     - cron: '0 */6 * * *'  # 每 6 小时检查一次，尝试重新注册
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   register-service:
     runs-on: ubuntu-latest

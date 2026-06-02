@@ -79,7 +79,22 @@ def root():
     return jsonify({
         "status": "Agent Money Maker is running! 🍎",
         "message": "Try /api/v1/sentiment (POST) or /health (GET)",
-        "price_per_call": PRICE_PER_CALL
+        "price_per_call": PRICE_PER_CALL,
+        "discovery": "Check /.well-known/agent-discovery.json for full metadata"
+    }), 200
+
+@app.route('/.well-known/agent-discovery.json', methods=['GET'])
+def discovery():
+    """让机器自动发现本服务的元数据"""
+    return jsonify({
+        "name": "小苹果 - 链上情绪分析 Agent",
+        "url": "https://agent-money-maker.onrender.com/api/v1/sentiment",
+        "protocol": "x402",
+        "price": 0.1,
+        "currency": "USDC",
+        "status": "active",
+        "capabilities": ["sentiment_analysis", "crypto_market"],
+        "recipient": WALLET_ADDRESS
     }), 200
 
 @app.route('/health', methods=['GET'])

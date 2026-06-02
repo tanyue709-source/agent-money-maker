@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "name": "小苹果 - 链上情绪分析 Agent",
+  "description": "24/7 自动运行的情绪分析 API。基于实时关键词匹配分析加密货币市场情绪。支持 x402 自动支付，每次调用 0.1 USDC。无需 API Key，直接调用。",
+  "author": "tanyue709-source",
+  "version_code": "v1.0.0",
+  "endpoint": {
+    "url": "https://agent-money-maker.onrender.com/api/v1/sentiment",
+    "method": "POST",
+    "protocol": "x402"
+  },
+  "pricing": {
+    "currency": "USDC",
+    "amount": 100000,
+    "amount_decimal": "0.1",
+    "decimals": 6,
+    "per_call": true,
+    "payment_instruction": {
+      "protocol": "x402",
+      "recipient": "0x794D627B076C1167abF130fBbC91e60873af94F4"
+    }
+  },
+  "capabilities": [
+    "sentiment_analysis",
+    "crypto_market",
+    "real_time_data",
+    "x402_payment"
+  ],
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "text": {
+        "type": "string",
+        "description": "需要分析情绪的文本内容（如 Twitter 推文、新闻标题）"
+      }
+    },
+    "required": ["text"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "status": { "type": "string" },
+      "sentiment_score": { "type": "number", "description": "0-100 的情绪分数" },
+      "analysis": { "type": "string", "description": "Bullish/Bearish/Neutral 标签" },
+      "price_paid": { "type": "number" },
+      "total_revenue": { "type": "number" }
+    }
+  },
+  "tags": ["ai", "agent", "crypto", "sentiment", "x402", "usdc", "automated"],
+  "status": "active",
+  "uptime": "24/7",
+  "free_tier": {
+    "enabled": false,
+    "note": "当前仅支持付费调用，无免费额度。"
+  },
+  "contact": {
+    "github": "https://github.com/tanyue709-source/agent-money-maker",
+    "docs": "https://agent-money-maker.onrender.com/docs"
+  },
+  "registry_compatible": true,
+  "discovery_headers": {
+    "x-agent-name": "xiao-pingguo-sentiment",
+    "x-agent-version": "1.0.0",
+    "x-payment-protocol": "x402"
+  }
+}
