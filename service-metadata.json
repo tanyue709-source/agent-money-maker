@@ -1,0 +1,10 @@
+{
+  "name": "XiaoPingGuo Sentiment Agent",
+  "url": "https://agent-money-maker.onrender.com/api/v1/sentiment",
+  "discovery": "https://agent-money-maker.onrender.com/.well-known/agent-discovery.json",
+  "price": "0.1 USDC",
+  "capabilities": ["sentiment_analysis", "crypto_market", "x402_payment"],
+  "recipient": "0x794D627B076C1167abF130fBbC91e60873af94F4",
+  "status": "active",
+  "last_updated": "2026-06-02T04:50:14Z"
+}
